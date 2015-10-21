@@ -1,6 +1,3 @@
 module ZOrder
-	BACKGROUND = 0
-	STARS = 1
-	PLAYER = 2
-	UI = 3
+  Background, Stars, Player, UI = *0..3, Bombs = 1
 end
