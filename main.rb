@@ -33,8 +33,13 @@ class GameWindow < Gosu::Window
     end
 
     if rand(200) < 2 and @bombs.size < 25 then
-      @bombs.push(Bomb.new(@bomb_anim))
+      @bombs.push(Bomb.new)
     end
+
+    @bombs.each do |bomb|
+			bomb.update
+			@bombs.delete(bomb) if bomb.explosion? == 1
+		end
     
 	end
 
@@ -49,10 +54,6 @@ class GameWindow < Gosu::Window
 
 	def button_down(id)
 		close if id == Gosu::KbEscape
-	end
-
-	def remove_bomb
-		
 	end
 
 
